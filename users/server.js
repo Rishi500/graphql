@@ -1,6 +1,14 @@
-const express = require('express');
+const express = require("express");
+const { graphqlHTTP } = require("express-graphql");
 const app = express();
 
-app.listen(4000,()=>{
-    console.log('listening on 4k')
-})
+app.use(
+  "/graphql",
+  graphqlHTTP({
+    graphiql: true,
+  })
+);
+
+app.listen(4000, () => {
+  console.log("listening on 4k");
+});
